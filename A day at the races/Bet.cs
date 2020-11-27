@@ -8,31 +8,47 @@ namespace A_day_at_the_races
 {
     class Bet
     {
-        public decimal amount;
-        public int dog;
-        public Guy Bettor;
+        private int amount;
+        private int dog;
+        private Guy bettor;
+
+        public int Amount
+        {
+            get { return amount; }
+            set { amount = value; }
+        }
+        public int Dog
+        {
+            get { return dog; }
+            set { dog = value; }
+        }
+        public Guy Bettor
+        {
+            get { return bettor; }
+            set { bettor = value; }
+        }
 
         public string GetDescription()
         {
             if (amount == 0)
             {
-                return Bettor.name + " hasn't placed a bet.";
+                return bettor.Name + "hasn't placed a bet.";
             }
             else
             {
-                return Bettor.name + " placed a bet of " + amount + "dollars on dog number" + dog;
+                return bettor.Name + " placed a bet of " + Amount + " dollars on " + Dog;
             }
         }
 
-        public decimal PayOut(int winner)
+        public int PayOut(int winner)
         {
             if (winner == dog)
             {
-                return amount * 2;
+                return amount;
             }
             else
             {
-                return (0 - amount);
+                return 0 - amount;
             }
         }
     }

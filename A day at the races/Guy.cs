@@ -9,30 +9,56 @@ namespace A_day_at_the_races
 {
     class Guy
     {
-        public string name;
-        public Bet myBet;
-        public decimal cash;
+        private string name;
+        private Bet myBet;
+        private int cash;
 
-        public RadioButton MyRadioButton;
-        public Label MyLabel;
+        private RadioButton myRadioButton;
+        private Label myLabel;
 
-        private void UpdateLabels()
+        public string Name
         {
-            MyRadioButton.Text = name + " has " + cash + " dollar";
+            get { return name; }
+            set { name = value; }
+        }
+        public Bet MyBet
+        {
+            get { return myBet; }
+            set { myBet = value; }
+        }
+        public int Cash
+        {
+            get { return cash; }
+            set { cash = value; }
+        }
+        public RadioButton MyRadioButton
+        {
+            get { return myRadioButton; }
+            set { myRadioButton = value; }
+        }
+        public Label MyLabel
+        {
+            get { return myLabel; }
+            set { myLabel = value; }
+        }
+
+        public void UpdateLabels()
+        {
+            myRadioButton.Text = name + " has " + cash + " dollar";
         }
 
         private void ClearBet()
         {
             myBet = null;
-            MyLabel.Text = name + " hasn't placed a bet";
+            myLabel.Text = name + " hasn't placed a bet";
         }
 
-        public bool PlaceBet(decimal betAmount, int dogChoice)
+        public bool PlaceBet(int betAmount, int dogChoice)
         {
-            myBet = new Bet() { amount = betAmount, dog = dogChoice, Bettor = this};
+            myBet = new Bet() { Amount = betAmount, Dog = dogChoice, Bettor = this};
             if (betAmount < cash)
             {
-                MyLabel.Text = this.name + " bets " + betAmount + " dollars on dog number " + dogChoice;
+                myLabel.Text = this.name + " bets " + betAmount + " dollars on dog number " + dogChoice;
                 UpdateLabels();
                 return true;
             }

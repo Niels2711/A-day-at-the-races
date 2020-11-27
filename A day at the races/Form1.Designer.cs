@@ -71,6 +71,7 @@
             this.raceTrack.Size = new System.Drawing.Size(775, 217);
             this.raceTrack.TabIndex = 0;
             this.raceTrack.TabStop = false;
+            this.raceTrack.Click += new System.EventHandler(this.raceTrack_Click);
             // 
             // dog1
             // 
@@ -265,6 +266,7 @@
             this.minimumBetLabel.Size = new System.Drawing.Size(88, 17);
             this.minimumBetLabel.TabIndex = 3;
             this.minimumBetLabel.Text = "Minimum Bet";
+            this.minimumBetLabel.Click += new System.EventHandler(this.minimumBetLabel_Click);
             // 
             // alBetButton
             // 
